@@ -22,7 +22,17 @@ It'll be straight forward:
 - [ ] Download to PDF
 - [ ] Forward mail to your own places, like a proxy
 - [ ] Connect your own domain, you'll probably have to set something up that it arrives at our inbox.
+- [ ] Storing everything to a faster database than IMAP as soon as the mail arrives & then remove it from the mailbox to leave no traces on the place it arrived at.
+- [ ] Queuing queries so the IMAP server doesn't get flooded with useless queries.
+- [ ] Ratelimitting based off the email address AND ip that the requests comes from.
 
+## Backend routes
+### `/mail/:emailAddress`
+* Find all mails for a certain email emailAddress
+
+### `/ping`
+* Pong!
+* Checks if the IMAP server is connected
 ## Partners 🤝
 The IMAP server will be hosted by [LNGZL](https://lngzl.nl) which is my software development agency aka it's sponsored by myself 🎉
 
