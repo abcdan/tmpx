@@ -40,14 +40,39 @@ app.get("/mail/:address", async (req, res) => {
 
   const start = new Date();
   const address = req.params.address;
+
+  if (address === process.env.IMAP_USER) {
+    return res.status(400).json({ msg: "Couldn't fetch mails" });
+  }
+
   var searchCriteria = [["HEADER", "envelope-to", address]];
   // TODO: Fetch subject, body and from
-  var fetchOptions = { bodies: ["TEXT", ""], struct: false };
+  var fetchOptions = { bodies: ["HEADER", "TEXT", ""], struct: false };
   const results = await connection.search(searchCriteria, fetchOptions);
-  console.log(results);
+
+  const mails = [];
+
+  for (const mail of results) {
+    mails.push({
+      subject: mail.parts[0].body.subject[0],
+      from: mail.parts[0].body.from[0],
+      body: mail.parts[1].body,
+      date: mail.parts[0].body.date[0],
+    });
+  }
+
+  mails.sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
+  });
+
   const end = new Date();
   const time = end.getTime() - start.getTime();
-  res.json({ mails: results, time: `${time}ms`, query: address });
+  res.json({
+    msg: "fetched all mails for given inbox",
+    mails: mails,
+    time: `${time}ms`,
+    query: address,
+  });
 });
 
 app.all("/ping", (req, res) => {
