@@ -1,3 +1,12 @@
+/**
+ * Note! I usually first design the programm in a way that it would be able to
+ * the basic functions.
+ * 
+ * I'll then refactor the programm to make it more readable and usable.
+ * 
+ * So if you look at this file and think "Why isn't something split up", 
+ * look above for the answer.
+ */
 require("dotenv").config();
 
 const express = require("express");
