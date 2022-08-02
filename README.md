@@ -12,3 +12,4 @@ A stupidly simple to use temporary mail host. _Yes, there are hundreds of these.
 - [ ] A CRON that will clear the main inbox after a certain amount of time
 - [ ] Download to PDF
 - [ ] Forward mail to your own places, like a proxy
+- [ ] Connect your own domain, you'll probably have to set something up that it arrives at our inbox.
