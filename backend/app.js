@@ -50,6 +50,10 @@ app.get("/mail/:address", async (req, res) => {
   res.json({ mails: results, time: `${time}ms`, query: address });
 });
 
+app.all("/ping", (req, res) => {
+    res.json({ msg: "pong", connected: !!connection});
+})
+
 app.listen(process.env.PORT ?? 80, () => {
   console.log(`📨 tmpx is live on port ${process.env.PORT ?? 80}`);
 });

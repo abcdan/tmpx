@@ -174,6 +174,13 @@ cors@~2.8.5:
     object-assign "^4"
     vary "^1"
 
+cron@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/cron/-/cron-2.1.0.tgz#f69fe77f1164d0bccbc24300938bbb3bea6ed95e"
+  integrity sha512-Hq7u3P8y7UWYvsZbSKHHJDVG0VO9O7tp2qljxzTScelcTODBfCme8AIhnZsFwmQ9NchZ3hr2uNr+s3DSms7q6w==
+  dependencies:
+    luxon "^1.23.x"
+
 debug@2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -447,6 +454,11 @@ isarray@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
   integrity sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==
+
+luxon@^1.23.x:
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.28.0.tgz#e7f96daad3938c06a62de0fb027115d251251fbf"
+  integrity sha512-TfTiyvZhwBYM/7QdAVDh+7dBTBA29v4ik0Ce9zda3Mnf8on1S5KJI8P2jKFZ8+5C0jhmr0KwJEO/Wdpm0VeWJQ==
 
 media-typer@0.3.0:
   version "0.3.0"
