@@ -17,7 +17,7 @@ It'll be straight forward:
 
 ## Roadmap 🛣️
 - [ ] Setup a backend that can stream imap to the right places
-- [ ] An endpoint that will fetch recent mail from the IMAP server
+- [x] An endpoint that will fetch recent mail from the IMAP server
 - [ ] A CRON that will clear the main inbox after a certain amount of time
 - [ ] Download to PDF
 - [ ] Forward mail to your own places, like a proxy
