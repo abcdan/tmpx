@@ -1,6 +1,5 @@
-# tmpx
+# tmpx 📨
 A stupidly simple to use temporary mail host. _Yes, there are hundreds of these. It's just fun to learn new things_
-
 
 ## Core features
 - A simple web UI where you can generate a temp mail.
@@ -13,3 +12,6 @@ A stupidly simple to use temporary mail host. _Yes, there are hundreds of these.
 - [ ] Download to PDF
 - [ ] Forward mail to your own places, like a proxy
 - [ ] Connect your own domain, you'll probably have to set something up that it arrives at our inbox.
+
+## License
+It's licenesed under the Apache-2.0 license, check `LICENSE.md` for _all_ information.
