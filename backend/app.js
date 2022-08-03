@@ -11,6 +11,7 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
+const isEmail = require("is-email");
 
 const imaps = require("imap-simple");
 
@@ -41,6 +42,11 @@ app.get("/mail/:address", async (req, res) => {
   const start = new Date();
   const address = req.params.address;
 
+  if(!isEmail(address)) {
+    return res.status(400).json({ msg: "invalid email address." });
+  }
+  
+
   if (address === process.env.IMAP_USER) {
     return res.status(400).json({ msg: "Couldn't fetch mails" });
   }
@@ -60,6 +66,8 @@ app.get("/mail/:address", async (req, res) => {
       date: mail.parts[0].body.date[0],
     });
   }
+
+  
 
   mails.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
