@@ -27,6 +27,7 @@ It'll be straight forward:
 - [ ] Ratelimitting based off the email address AND ip that the requests comes from.
 
 ## Backend routes
+The base for the JSON-API is `https://json.tmpx.email`, it currently hosts the `@tmpx.sa.com` domain.
 ### `/mail/:emailAddress`
 * Find all mails for a certain email emailAddress
 
