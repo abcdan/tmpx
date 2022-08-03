@@ -42,10 +42,9 @@ app.get("/mail/:address", async (req, res) => {
   const start = new Date();
   const address = req.params.address;
 
-  if(!isEmail(address)) {
+  if (!isEmail(address)) {
     return res.status(400).json({ msg: "invalid email address." });
   }
-  
 
   if (address === process.env.IMAP_USER) {
     return res.status(400).json({ msg: "Couldn't fetch mails" });
@@ -67,8 +66,6 @@ app.get("/mail/:address", async (req, res) => {
     });
   }
 
-  
-
   mails.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
   });
@@ -83,6 +80,11 @@ app.get("/mail/:address", async (req, res) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.json({
+    msg: "listening to @tmpx.sa.com, just send mails to <whatever>@tmpx.sa.com and then use the /mail/<whatever>@sa.com endpoint to get the mails.",
+  });
+});
 app.all("/ping", (req, res) => {
   res.json({ msg: "pong", connected: !!connection });
 });
