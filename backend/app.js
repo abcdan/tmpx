@@ -82,7 +82,7 @@ app.get("/mail/:address", async (req, res) => {
 
 app.get("/", (req, res) => {
   res.json({
-    msg: "listening to @tmpx.sa.com, just send mails to <whatever>@tmpx.sa.com and then use the /mail/<whatever>@sa.com endpoint to get the mails.",
+    msg: "listening to @tmpx.sa.com, just send mails to <whatever>@tmpx.sa.com and then use the /mail/<whatever>@tmpx.sa.com endpoint to get the mails.",
   });
 });
 app.all("/ping", (req, res) => {
