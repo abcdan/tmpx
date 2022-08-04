@@ -25,6 +25,7 @@ It'll be straight forward:
 - [ ] Storing everything to a faster database than IMAP as soon as the mail arrives & then remove it from the mailbox to leave no traces on the place it arrived at.
 - [ ] Queuing queries so the IMAP server doesn't get flooded with useless queries.
 - [ ] Ratelimitting based off the email address AND ip that the requests comes from.
+- [ ] Automatically reconnect when the IMAP connection drops
 
 ## Backend routes
 The base for the JSON-API is `https://json.tmpx.email`, it currently hosts the `@tmpx.sa.com` domain.
