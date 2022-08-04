@@ -15,6 +15,11 @@ It'll be straight forward:
 - An IMAP server, this stores all the mail. Why use a DB when we can just use IMAP for now.
 - imap-simple to interact with the IMAP server.
 
+## Requirements 🖥
+- A solid IMAP server that has a high uptime
+- A VPS with Node.js installed
+- A catch-all email address
+
 ## Roadmap 🛣️
 - [ ] Setup a backend that can stream imap to the right places
 - [x] An endpoint that will fetch recent mail from the IMAP server
