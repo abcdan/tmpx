@@ -3,8 +3,11 @@
     "cron": "^2.1.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "html-to-text": "^8.2.1",
+    "html2plaintext": "^2.1.4",
     "imap-simple": "^5.1.0",
     "is-email": "^1.0.2",
+    "lodash": "^4.17.21",
     "nodemon": "^2.0.19",
     "socket.io": "^4.5.1"
   }

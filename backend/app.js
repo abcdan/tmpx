@@ -8,10 +8,13 @@
  * look above for the answer.
  */
 require("dotenv").config();
+const _ = require('lodash');
 
 const express = require("express");
 const app = express();
 const isEmail = require("is-email");
+const { convert } = require('html-to-text');
+var h2p = require('html2plaintext')
 
 const imaps = require("imap-simple");
 
@@ -33,6 +36,26 @@ async function setup() {
 }
 
 setup();
+
+// A ghetto function that strips the text from mail.
+function stripText(text) {
+  // For Gmail
+  if(text.includes("<div dir=\"ltr\">") && text.includes("</div>")) {
+    text = text.split("<div dir=\"ltr\">")[1].split("</div>")[0];
+  }
+
+  // For Hotmail
+  if(text.includes("<1body") && text.includes("</body>")) {
+    text = text.split("<body")[1].split("</body>")[0];
+    text = "<body" + text + "</body>";
+  }
+
+  text = convert(text)
+  text = h2p(text)
+
+  return text;
+}
+
 
 app.get("/mail/:address", async (req, res) => {
   if (!connection) {
@@ -58,11 +81,14 @@ app.get("/mail/:address", async (req, res) => {
   const mails = [];
 
   for (const mail of results) {
+    var all = _.find(mail.parts, { "which": "TEXT" })
+    var html = (Buffer.from(all.body, 'base64').toString('ascii'));
     mails.push({
       subject: mail.parts[0].body.subject[0],
       from: mail.parts[0].body.from[0],
-      body: mail.parts[1].body,
+      body: stripText(mail.parts[1].body),
       date: mail.parts[0].body.date[0],
+      // raw: mail.parts
     });
   }
 
