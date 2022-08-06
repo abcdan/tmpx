@@ -43,5 +43,12 @@ The base for the JSON-API is `https://json.tmpx.email`, it currently hosts the `
 ## Partners 🤝
 The IMAP server will be hosted by [LNGZL](https://lngzl.nl) which is my software development agency aka it's sponsored by myself 🎉
 
+## Donate domains
+If you're interested in donating a domain to the tmpx platform, first of all that's awesome!
+
+Simply join the official LNGZL Discord server and send me (Like#0001) a message.
+
+Click [here](https://discord.gg/p8uBcSW) to join the Discord
+
 ## License ⚖️
 It's licenesed under the Apache-2.0 license, check `LICENSE.md` for _all_ information.
