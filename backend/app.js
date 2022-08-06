@@ -33,9 +33,17 @@ async function setup() {
   };
   connection = await imaps.connect(config);
   await connection.openBox("INBOX");
+  console.log('connected')
 }
 
 setup();
+
+setInterval(async () => {
+  console.log('cleaning up')
+  await connection.closeBox();
+  await setup();
+} , 60000);
+
 
 // A ghetto function that strips the text from mail.
 function stripText(text) {
