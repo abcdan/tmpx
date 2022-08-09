@@ -44,7 +44,7 @@ setInterval(async () => {
   console.log('cleaning up')
   await connection.closeBox();
   await setup();
-} , 20000);
+} , 60000);
 
 
 // A ghetto function that strips the text from mail.
