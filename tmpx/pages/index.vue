@@ -6,9 +6,10 @@
       <h2>A stupidly simple to use temporary mail host</h2>
       <br>
       <br>
-      <div class="generate-button">Get an inbox</div>
+      <div class="generate-button" @click="randomEmailAddress">Get an inbox</div>
       <br>
-      <br><a href="https://github.com/abcdan/tmpx" class="link" target="_blank">We're on GitHub</a> <span class="link">-</span> <a href="https://lngzl.nl" class="link" target="_blank">Powered by LNGZL</a>
+      <br><a href="https://github.com/abcdan/tmpx" class="link" target="_blank">We're on GitHub</a> <span
+        class="link">-</span> <a href="https://lngzl.nl" class="link" target="_blank">Powered by LNGZL</a>
     </div>
     <p></p>
   </div>
@@ -22,6 +23,16 @@ export default {
       mail: ''
     }
   },
+  methods: {
+    randomEmailAddress() {
+      const genRand = (len) => {
+        return Math.random().toString(36).substring(2, len + 2);
+      }
+
+      const email = genRand(16) + '@tmpx.sa.com';
+      this.$router.push("/inbox/" + email);
+    }
+  }
 }
 </script>
 
@@ -42,8 +53,9 @@ export default {
 
 .link {
   color: #e2c9f8;
-  @apply text-xl  font-semibold  hover:text-black transition;
+  @apply text-xl font-semibold hover:text-black transition;
 }
+
 h1 {
   @apply text-6xl font-bold text-white;
 }

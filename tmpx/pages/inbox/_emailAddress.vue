@@ -5,12 +5,13 @@
       <br>
       <h2>That's your burner email address 🔥</h2>
       <br>
-      <div class="no-mail">
+      <div class="no-mail" v-if="!mail">
         <p>
           <span class="no-mail-text">📮 It looks like we haven't received any mail yet 📮</span>
         </p>
         <br>
       </div>
+      <Mail :key="email.date" v-for="email of mail" :mail="email" />
       <br>
       <br><a href="https://github.com/abcdan/tmpx" class="link" target="_blank">We're on GitHub</a> <span
         class="link">-</span> <a href="https://lngzl.nl" class="link" target="_blank">Powered by LNGZL</a>
@@ -19,30 +20,45 @@
 </template>
 
 <script>
+import Mail from "../../components/Mail.vue";
 export default {
-  name: 'IndexPage',
+  name: "IndexPage",
   data: function () {
     return {
       mail: [],
       interval: null,
+    };
+  },
+  fetchOnServer: false,
+  async created() {
+    const newMail = await this.getMail()
+    this.mail = this.mail.concat(newMail);
+    if (process.client) {
+      this.interval = setInterval(async () => {
+        const newMail = await this.getMail()
+        this.mail = this.mail.concat(newMail);
+        this.mail = this.mail.filter((mail, index, self) => {
+          return self.findIndex(m => m.subject === mail.subject && m.sender === mail.sender && m.date === mail.date) === index;
+        });
+      }, 5000);
     }
   },
-  created() {
-    this.interval = setInterval(() => {
-      this.mail = this.mail.concat(this.getMail())
-    }, 5000)
-  },
   destroyed() {
-    clearInterval(this.interval);
+    if (process.client) {
+      clearInterval(this.interval);
+    }
   },
   methods: {
     async getMail() {
-      const res = await this.$http.get('https://json.tmpx.email/mail/' + this.$route.params.emailAddress)
-      const json = await res.json()
-      console.log(json)
-      return json.mails
+      const res = await this.$http.get("https://json.tmpx.email/mail/" + this.$route.params.emailAddress);
+      const json = await res.json();
+      if (process.client) {
+        console.log(json);
+      }
+      return json.mails;
     }
-  }
+  },
+  components: { Mail }
 }
 </script>
 
