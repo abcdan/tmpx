@@ -14,7 +14,8 @@
       <Mail :key="email.date" v-for="email of mail" :mail="email" />
       <br>
       <br><a href="https://github.com/abcdan/tmpx" class="link" target="_blank">We're on GitHub</a> <span
-        class="link">-</span> <a href="https://lngzl.nl" class="link" target="_blank">Powered by LNGZL</a>
+        class="link">-</span> <a href="https://github.com/abcdan/tmpx/blob/main/PRIVACY.md" class="link" target="_blank">Privacy Poliy</a> <span
+        class="link">-</span> <a href="https://lngzl.nl" class="link" target="_blank">Sponsored by LNGZL</a>
     </div>
   </div>
 </template>
