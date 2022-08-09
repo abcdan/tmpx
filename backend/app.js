@@ -9,9 +9,11 @@
  */
 require("dotenv").config();
 const _ = require('lodash');
-
+const cors = require('cors')
 const express = require("express");
+
 const app = express();
+app.use(cors())
 const isEmail = require("is-email");
 const { convert } = require('html-to-text');
 var h2p = require('html2plaintext')
@@ -42,7 +44,7 @@ setInterval(async () => {
   console.log('cleaning up')
   await connection.closeBox();
   await setup();
-} , 60000);
+} , 20000);
 
 
 // A ghetto function that strips the text from mail.
