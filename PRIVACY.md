@@ -7,9 +7,13 @@ privacy policy _only_ applies to the official tmpx.email instance that's hosted 
 able to delete them manually in the future.~~
 Currently, mails are stored ♾️ forever but this will change soon. Since we're still _heavily_ in development we sometimes need old mails. Expect this to change in the REALLY near future.
 
-## Do you keeps logs?
+## Do you keeps logs? Or do you track certain things?
 Yes, we do keep some logs but they are anonymized. This means that _outside of the mail system that stores the mails temporarly_ no mails
 are stored at our end.
+
+* We use Cloudflare for protection and analytics
+* We host the backend on Digital Ocean
+* We host the front-end on Cloudflare
 
 ## Where's the data located?
 We use the generous Cloudflare Pages system for our front-end and we host our backend over at Digital Ocean in The Netherlands. The IMAP server
