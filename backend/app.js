@@ -41,9 +41,14 @@ async function setup() {
 setup();
 
 setInterval(async () => {
-  console.log('cleaning up')
-  await connection.closeBox();
-  await setup();
+  console.log("cleaning up");
+  try {
+    await connection.closeBox();
+  } catch (e) {
+    console.log(e);
+  } finally {
+    await setup();
+  }
 } , 60000);
 
 
