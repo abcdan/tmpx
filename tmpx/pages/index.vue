@@ -41,7 +41,7 @@ export default {
 <style lang="postcss" scoped>
 .purple {
   background-color: #bf96ed;
-  @apply h-screen flex
+  @apply min-h-screen min-w-screen flex;
 }
 
 .content {
